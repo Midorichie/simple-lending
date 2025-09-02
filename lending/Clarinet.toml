@@ -1,0 +1,123 @@
+[project]
+name = "simple-lending"
+description = "A simple lending and borrowing platform for STX tokens"
+version = "1.0.0"
+authors = ["Your Name <your.email@example.com>"]
+telemetry = false
+cache_dir = ".clarinet/cache"
+
+[contracts.lending-platform]
+path = "contracts/lending-platform.clar"
+clarity_version = 2
+epoch = 2.4
+
+[project.requirements]
+
+[repl]
+costs = true
+parser_version = 2
+
+[repl.analysis]
+ast = false
+annotations = false
+costs = false
+
+[repl.analysis.check_checker]
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
+
+# Network configurations
+[networks]
+simnet.node_rpc_address = "http://localhost:20443"
+simnet.node_p2p_address = "localhost:20444"
+simnet.stacks_node_events_address = "localhost:3700"
+simnet.bitcoin_node_rpc_address = "http://localhost:18443"
+simnet.bitcoin_node_rpc_username = "btc"
+simnet.bitcoin_node_rpc_password = "btc"
+simnet.bitcoin_node_p2p_address = "localhost:18444"
+simnet.bitcoin_controller_block_time = 30_000
+simnet.stacks_controller_genesis_timestamp = 0
+simnet.stacks_controller_burn_fee_cap = 20_000
+simnet.stacks_controller_coinbase_amount = 100_000_000
+
+testnet.node_rpc_address = "https://api.testnet.hiro.so"
+testnet.node_p2p_address = "testnet-seed.blockstack.org:20444"
+testnet.stacks_node_events_address = "https://api.testnet.hiro.so"
+
+mainnet.node_rpc_address = "https://api.hiro.so"
+mainnet.node_p2p_address = "seed.mainnet.hiro.so:20444"
+mainnet.stacks_node_events_address = "https://api.hiro.so"
+
+# Development accounts
+[[accounts]]
+name = "deployer"
+address = "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/0"
+
+[[accounts]]
+name = "wallet_1"
+address = "ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/1"
+
+[[accounts]]
+name = "wallet_2"
+address = "ST2CY5V39NHDPWSXMW9QDT3HC3GD6Q6XX4CFRK9AG"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/2"
+
+[[accounts]]
+name = "wallet_3"
+address = "ST2JHG361ZXG51QTKY2NQCVBPPRRE2KZB1HR05NNC"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/3"
+
+[[accounts]]
+name = "wallet_4"
+address = "ST2NEB84ASENDXKYGJPQW86YXQCEFEX2ZQPG87ND"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/4"
+
+[[accounts]]
+name = "wallet_5"
+address = "ST2REHHS5J3CERCRBEPMGH7921Q6PYKAADT7JP2VB"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/5"
+
+[[accounts]]
+name = "wallet_6"
+address = "ST3AM1A56AK2C1XAFJ4115ZSV26EB49BVQ10MGCS0"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/6"
+
+[[accounts]]
+name = "wallet_7"
+address = "ST3PF13W7Z0RRM42A8VZRVFQ75SV1K26RXEP8YGKJ"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/7"
+
+[[accounts]]
+name = "wallet_8"
+address = "ST3NBRSFKX28FQ2ZJ1MAKX58HKHSDGNV5N7R21XCP"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/8"
+
+[[accounts]]
+name = "wallet_9"
+address = "STNHKEPYEPJ8ET55ZZ0M5A34J0R3N5FM2CMMMAZ6"
+balance = 100_000_000_000_000
+derivation = "m/44'/5757'/0'/0/9"
+
+# Deployment configurations
+[deployments]
+
+[deployments.simnet]
+simple-lending = "lending-platform.clar"
+
+[deployments.testnet]
+simple-lending = "lending-platform.clar"
+
+[deployments.mainnet]
+simple-lending = "lending-platform.clar"
