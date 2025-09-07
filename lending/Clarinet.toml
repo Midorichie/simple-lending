@@ -1,11 +1,12 @@
 [project]
 name = "simple-lending"
-description = "A simple lending and borrowing platform for STX tokens"
-version = "1.0.0"
+description = "A simple lending and borrowing platform for STX tokens with governance and oracle system"
+version = "2.0.0"
 authors = ["Your Name <your.email@example.com>"]
 telemetry = false
 cache_dir = ".clarinet/cache"
 
+# Contract definitions
 [contracts.lending-platform]
 path = "contracts/lending-platform.clar"
 clarity_version = 2
@@ -16,8 +17,14 @@ path = "contracts/governance.clar"
 clarity_version = 2
 epoch = 2.4
 
+[contracts.oracle-liquidation]
+path = "contracts/oracle-liquidation.clar"
+clarity_version = 2
+epoch = 2.4
+
 [project.requirements]
 
+# REPL settings
 [repl]
 costs = true
 parser_version = 2
@@ -119,10 +126,16 @@ derivation = "m/44'/5757'/0'/0/9"
 [deployments]
 
 [deployments.simnet]
-simple-lending = "lending-platform.clar"
+lending-platform = "contracts/lending-platform.clar"
+governance = "contracts/governance.clar"
+oracle-liquidation = "contracts/oracle-liquidation.clar"
 
 [deployments.testnet]
-simple-lending = "lending-platform.clar"
+lending-platform = "contracts/lending-platform.clar"
+governance = "contracts/governance.clar"
+oracle-liquidation = "contracts/oracle-liquidation.clar"
 
 [deployments.mainnet]
-simple-lending = "lending-platform.clar"
+lending-platform = "contracts/lending-platform.clar"
+governance = "contracts/governance.clar"
+oracle-liquidation = "contracts/oracle-liquidation.clar"
